@@ -45,7 +45,7 @@ function TransactionsEditForm() {
 		.then(response => response.json)
 		.then(transaction =>  {
 			setTransaction(transaction)
-		};) 
+		}) 
 	}, [index, navigate]);
 
 	const httpOptions = {
@@ -62,7 +62,7 @@ function TransactionsEditForm() {
 				alert(`${transaction.name} has been updated!`)
 				navigate(`/transactions/${index}`);
 			})
-			.catch((error) => console.error("catch", error));
+			.catch((error) => console.error("catch", error))
 	};
 
 	useEffect(() => {
@@ -71,7 +71,7 @@ function TransactionsEditForm() {
 			return response.json
 		}).then((json) => {
 			setTransaction(json);
-			}).catch((error) => console.error(error);)
+			}).catch((error) => console.error(error))
 	}, [index])
 
 	const handleSubmit = (e) => {

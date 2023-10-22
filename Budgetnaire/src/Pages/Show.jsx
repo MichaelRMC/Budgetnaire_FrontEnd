@@ -1,10 +1,10 @@
 import TransactionDetails from '../components/TransactionDetails'
-import NavBar from "./components/NavBar";
+import Header from "../components/Header";
 
 function Show() {
   return (
 		<div className='Show'>
-			<NavBar />
+			<Header />
 			<h2>Show</h2>
 			<TransactionDetails />
 		</div>

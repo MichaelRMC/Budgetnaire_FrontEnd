@@ -1,5 +1,5 @@
-import TransactionNewForm from '../components/TransactionsNewForm';
-import NavBar from "./components/NavBar";
+import TransactionNewForm from '../components/TransactionNewForm';
+import Header from '../components/Header'
 
 function New() {
   return (

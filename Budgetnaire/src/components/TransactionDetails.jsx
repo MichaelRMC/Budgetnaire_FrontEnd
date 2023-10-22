@@ -29,10 +29,10 @@ const handleDelete = () => {
 
 	fetch(`${API}/transaction/${index}`, httpOptions)
 	.then(() => {
-		alert(Your transaction has been deleted!)
+		alert("Your transaction has been deleted!")
 		navigate(`/transactions`)
 	})
-	.catch((error) => console.error(error); )
+	.catch((error) => console.error(error) )
 }
  
   return (

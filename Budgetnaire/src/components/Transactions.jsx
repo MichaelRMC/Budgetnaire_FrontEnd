@@ -11,7 +11,7 @@ useEffect(() => {
   fetch(`${API}/transactions`)
   .then((response) => response.json)
   .then(transactions => setTransactions(transactions))
-  .catch(error => console.log(error);)
+  .catch(error => console.log(error))
 }, []);
 
 function getCategoryTransactions() {

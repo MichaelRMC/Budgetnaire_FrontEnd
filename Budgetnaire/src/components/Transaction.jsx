@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Transaction({transaction, index}) {
+function Transaction({transaction, id}) {
   return (
 	 <tr>
     <td>

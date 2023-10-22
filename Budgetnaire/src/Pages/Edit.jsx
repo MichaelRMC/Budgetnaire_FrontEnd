@@ -1,5 +1,5 @@
 import TransactionEditForm from '../components/TransactionEditForm'
-import NavBar from "./components/NavBar";
+import NavBar from "../components/NavBar";
 
 function Edit() {
   return (

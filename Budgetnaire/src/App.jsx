@@ -20,8 +20,8 @@ function App() {
 					<Routes>
 						<Route path='/transactions' element={<Home />} />
 						<Route path='/transactions/new' element={<New />} />
-						<Route path='/transactions/:index/edit' element={<Edit />} />
-						<Route path='/transactions/:index' element={<Show />} />
+						<Route path='/transactions/:id/edit' element={<Edit />} />
+						<Route path='/transactions/:id' element={<Show />} />
 						<Route path='*' element={<Four0Four />} />
 					</Routes>
 				</main>
