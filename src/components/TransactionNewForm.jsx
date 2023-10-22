@@ -79,7 +79,7 @@ function TransactionsNewForm() {
 					value={name}
 					onChange={handleNameChange}
 				/>
-				<label htmlFor='business'>From:</label>
+				<label htmlFor='business'>Business:</label>
 				<input
 					type='text'
 					name='business'
@@ -106,6 +106,12 @@ function TransactionsNewForm() {
 					<option value="Income">Income</option>
 					<option value="Pets">Pets</option>
 					<option value="Savings">Savings</option>
+					<option value="Grocery">Grocery</option>
+					<option value="Housing">Housing</option>
+					<option value="Transportation">Transportation</option>
+					<option value="Insurance">Insurance</option>
+					<option value="Utilities">Utilities</option>
+					<option value="Personal">Personal</option>
 				</select>
 				<button type='submit'>Submit</button>
 			</form>
