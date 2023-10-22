@@ -43,7 +43,7 @@ function TransactionsNewForm() {
 	};
 
 
-	const handleBusinessChange = (e) => {
+	const handleFromChange = (e) => {
 		setBusiness(e.target.value);
 	};
 
@@ -79,14 +79,6 @@ function TransactionsNewForm() {
 					value={name}
 					onChange={handleNameChange}
 				/>
-				<label htmlFor='business'>Business:</label>
-				<input
-					type='text'
-					name='business'
-					id='business'
-					value={business}
-					onSubmit={handleBusinessChange}
-				/>
 				<label htmlFor='amount'>Amount:</label>
 				$
 				<input
@@ -97,6 +89,14 @@ function TransactionsNewForm() {
 					value={amount}
 					placeholder='0.00'
 					onChange={handleAmountChange}
+				/>
+				<label htmlFor='from'>From:</label>
+				<input
+					type='text'
+					name='from'
+					id='from'
+					value={from}
+					onSubmit={handleFromChange}
 				/>
 				<label htmlFor="category">Category:</label>
 				<select name="category" id="category" value={category} onSelect={handleCategoryChange}>
