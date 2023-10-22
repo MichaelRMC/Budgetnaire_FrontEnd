@@ -1,9 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import TransactionDetails from '../components/TransactionDetails'
+import NavBar from "./components/NavBar";
 
 function Show() {
   return (
-	<div>Show</div>
-  )
+		<div className='Show'>
+			<NavBar />
+			<h2>Show</h2>
+			<TransactionDetails />
+		</div>
+	);
 }
 
 export default Show

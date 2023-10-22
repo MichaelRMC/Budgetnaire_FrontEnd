@@ -1,20 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import Transactions from '../components/Transactions'
+import NavBar from "./components/NavBar";
 
 function Home() {
-const [data, setData] = useState("");
-
-useEffect(() => {
-	fetch(`${API}`)
-		.then((response) => {
-			return response.json();
-		})
-		.then((json) => setData(json))
-		.catch((error) => console.error(error));
-}, []);
-
   return (
-	<div>Home</div>
-  )
+		<div className='Index'>
+			<NavBar />
+			<h2>Home</h2>
+			<Transactions />
+		</div>
+	);
 }
 
 export default Home

@@ -1,9 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
-
-function Transaction() {
+function Transaction({transaction, index}) {
   return (
-	<div>Transaction</div>
+	 <tr>
+    <td>
+      {transaction.date}
+    </td>
+    <td>
+      <Link to={`/transactions/${index}`}>{transaction.name}</Link>
+    </td>
+    <td>{transaction.category}</td>
+   </tr>
   )
 }
 

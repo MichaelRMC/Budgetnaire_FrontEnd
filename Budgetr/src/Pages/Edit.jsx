@@ -1,9 +1,11 @@
-import React from 'react'
-import TransactionEditForm from '../components/TransactionsEditForm'
+import TransactionEditForm from '../components/TransactionEditForm'
+import NavBar from "./components/NavBar";
 
 function Edit() {
   return (
-	<div>
+	<div className="Edit Transaction">
+		<NavBar />
+		<h2>Edit Transaction</h2>
 		<TransactionEditForm />
 	</div>
   )
