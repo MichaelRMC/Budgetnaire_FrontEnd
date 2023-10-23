@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 
 const API = import.meta.env.VITE_API_URL;
 
 function TransactionsEditForm() {
-	let { index } = useParams();
-	const navigate = useNavigate();
 	const [date, setDate] = useState("");
 	const [name, setName] = useState("");
 	const [business, setBusiness] = useState("");
@@ -19,34 +17,36 @@ function TransactionsEditForm() {
 		category: ""
 	});
 
+	let { index } = useParams();
+	const navigate = useNavigate();
 
 	const handleDateChange = (e) => {
-		setDate(e.target.value);
+	setDate({...transaction, [e.target.id]: e.target.value});
 	};
 
 	const handleNameChange = (e) => {
-		setName(e.target.value);
+		setName({...transaction, [e.target.id]: e.target.value });
 	};
 
 	const handleBusinessChange = (e) => {
-		setBusiness(e.target.value);
+		setBusiness({ ...transaction, [e.target.id]: e.target.value });
 	};
 
 	const handleAmountChange = (e) => {
-		setAmount(e.target.value);
+		setAmount({ ...transaction, [e.target.id]: e.target.value });
 	};
 
 	const handleCategoryChange = (e) => {
-		setCategory(e.target.value)
+		setCategory({ ...transaction, [e.target.id]: e.target.value });
 	}
 
 	useEffect(() => {
 		fetch(`${API}/transactions/${index}`)
-		.then(response => response.json)
-		.then(transaction =>  {
-			setTransaction(transaction)
-		}) 
+		.then((response) =>  response.json())
+		.then((transaction) => setTransaction(transaction))
+		.catch((error) => console.error(error))
 	}, [index, navigate]);
+	
 
 	const httpOptions = {
 			method: "PUT",
@@ -65,14 +65,6 @@ function TransactionsEditForm() {
 			.catch((error) => console.error("catch", error))
 	};
 
-	useEffect(() => {
-		fetch(`${API}/transactions/${index}`)
-		.then((response) => {
-			return response.json
-		}).then((json) => {
-			setTransaction(json);
-			}).catch((error) => console.error(error))
-	}, [index])
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -82,52 +74,66 @@ function TransactionsEditForm() {
 
 	return (
 		<div>
-			<form className="edit-transaction-form" onSubmit={handleSubmit}>
-				<label htmlFor="date">Date:</label>
+			<form className='edit-transaction-form' onSubmit={handleSubmit}>
+				<label htmlFor='date'>Date:</label>
 				<input
-					type="date"
-					name="date"
-					id="date"
+					type='date'
+					name='date'
+					id='date'
 					value={transaction.date}
 					onChange={handleDateChange}
 				/>
-				<label htmlFor="name">Name of Transaction:</label>
+				<br />
+				<label htmlFor='name'>Name of Transaction:</label>
 				<input
-					type="text"
-					name="name"
-					id="name"
+					type='text'
+					name='name'
+					id='name'
 					value={transaction.name}
 					onChange={handleNameChange}
 				/>
-				<label htmlFor="business">From:</label>
+				<br />
+				<label htmlFor='business'>Business:</label>
 				<input
-					type="text"
-					name="business"
-					id="business"
+					type='text'
+					name='business'
+					id='business'
 					value={transaction.business}
-					onSubmit={handleBusinessChange}
+					onChange={handleBusinessChange}
 				/>
-				<label htmlFor="amount">Amount:</label>
+				<br />
+				<label htmlFor='amount'>Amount:</label>
 				$
 				<input
-					type="number"
-					name="amount"
-					id="amount"
-					step="0.01"
+					type='number'
+					name='amount'
+					id='amount'
+					step='0.01'
 					value={transaction.amount}
-					placeholder="0.00"
+					placeholder='0.00'
 					onChange={handleAmountChange}
 				/>
-				<label htmlFor="category">Category:</label>
-				<select name="category" id="category" value={transaction.category} onSelect={handleCategoryChange}>
-					<option value="">Select Category</option>
-					<option value="Entertainment">Entertainment</option>
-					<option value="Grocery">Grocery</option>
-					<option value="Income">Income</option>
-					<option value="Pets">Pets</option>
-					<option value="Savings">Savings</option>
+				<br />
+				<label htmlFor='category'>Category:</label>
+				<select
+					name='category'
+					id='category'
+					value={transaction.category || ''}
+					onChange={handleCategoryChange}>
+					<option value=''>Select Category</option>
+					<option value='Entertainment'>Entertainment</option>
+					<option value='Grocery'>Grocery</option>
+					<option value='Income'>Income</option>
+					<option value='Pets'>Pets</option>
+					<option value='Savings'>Savings</option>
+					<option value='Grocery'>Grocery</option>
+					<option value='Housing'>Housing</option>
+					<option value='Transportation'>Transportation</option>
+					<option value='Insurance'>Insurance</option>
+					<option value='Utilities'>Utilities</option>
+					<option value='Personal'>Personal</option>
 				</select>
-				<button type="submit">Submit</button>
+				<button type='submit'>Submit</button>
 			</form>
 		</div>
 	);

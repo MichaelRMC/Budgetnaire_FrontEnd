@@ -71,6 +71,7 @@ function TransactionsNewForm() {
 					value={date}
 					onChange={handleDateChange}
 				/>
+				<br />
 				<label htmlFor='name'>Name of Transaction:</label>
 				<input
 					type='text'
@@ -79,14 +80,16 @@ function TransactionsNewForm() {
 					value={name}
 					onChange={handleNameChange}
 				/>
+				<br />
 				<label htmlFor='business'>Business:</label>
 				<input
 					type='text'
 					name='business'
 					id='business'
 					value={business}
-					onSubmit={handleBusinessChange}
+					onChange={handleBusinessChange}
 				/>
+				<br />
 				<label htmlFor='amount'>Amount:</label>
 				$
 				<input
@@ -98,6 +101,7 @@ function TransactionsNewForm() {
 					placeholder='0.00'
 					onChange={handleAmountChange}
 				/>
+				<br />
 				<label htmlFor="category">Category:</label>
 				<select name="category" id="category" value={category} onSelect={handleCategoryChange}>
 					<option value="">Select Category</option>

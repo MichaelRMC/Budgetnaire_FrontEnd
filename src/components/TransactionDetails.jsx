@@ -16,7 +16,7 @@ function TransactionDetails() {
 
 	useEffect(() => {
 		fetch(`${API}/transactions/${index}`)
-		.then((response) =>  response.json
+		.then((response) =>  response.json()
 		).then((transaction) => {
 			setTransaction(transaction);
 			}).catch(() => {
