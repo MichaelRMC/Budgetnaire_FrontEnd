@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./Pages/Home";
+import Index from "./Pages/Index";
 import Show from "./Pages/Show";
 import New from "./Pages/New";
 import Edit from "./Pages/Edit";
@@ -18,10 +19,11 @@ function App() {
 				<NavBar />
 				<main>
 					<Routes>
-						<Route path='/transactions' element={<Home />} />
-						<Route path='/transactions/new' element={<New />} />
-						<Route path='/transactions/:id/edit' element={<Edit />} />
-						<Route path='/transactions/:id' element={<Show />} />
+						<Route path="/" element={ <Home /> } />
+						<Route path="/transactions" element={<Index />} />
+						<Route path="/transactions/new" element={<New />} />
+						<Route path="/transactions/:id/edit" element={<Edit />} />
+						<Route path="/transactions/:id" element={<Show />} />
 						<Route path='*' element={<Four0Four />} />
 					</Routes>
 				</main>
