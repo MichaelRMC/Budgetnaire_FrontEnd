@@ -9,7 +9,11 @@ function Transactions() {
 	useEffect(() => {
 		fetch(`${API}/transactions`)
 			.then((response) => response.json())
-			.then(transactions => setTransactions(transactions))
+			.then( transactions =>
+			{
+				console.log(transactions);
+				setTransactions(transactions)
+			})
 			.catch((error) => console.error(error))
 	}, []);
 
@@ -22,7 +26,6 @@ function Transactions() {
 							<th>Date</th>
               <th>Name of Transaction</th>
               <th>Business</th>
-							<th>More Info</th>
 						</tr>
 					</thead>
 					<tbody>

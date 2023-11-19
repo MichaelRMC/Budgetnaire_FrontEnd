@@ -8,7 +8,7 @@ import New from "./Pages/New";
 import Edit from "./Pages/Edit";
 import Four0Four from "./Pages/Four0Four";
 
-import NavBar from "./components/NavBar";
+import Header from "./components/Header";
 
 import "./App.css";
 
@@ -16,7 +16,7 @@ function App() {
 	return (
 		<div className='App'>
 			<Router>
-				<NavBar />
+				<Header />
 				<main>
 					<Routes>
 						<Route path="/" element={ <Home /> } />

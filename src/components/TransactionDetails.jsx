@@ -1,40 +1,34 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 
 const API = import.meta.env.VITE_API_URL;
 
 function TransactionDetails() {
-	const [transaction, setTransaction] = useState({
-		date: "",
-		name: "",
-		amount: "",
-		business: "",
-		category: ""
-	});
-	let {index} = useParams();
+	const [transaction, setTransaction] = useState([]);
+	let { index } = useParams();
 	let navigate = useNavigate();
 
 	useEffect(() => {
 		fetch(`${API}/transactions/${index}`)
-			.then(response => response.json())
-			.then( transaction =>
-			{
-				console.log(transaction);
-				setTransaction(transaction);
-			})
-			.catch(() => navigate("/not_found"))
-	}, [index, navigate]);
+	// 		.then((response) => response.json())
+	// 		.then( transaction =>
+	// 		{
+	// 			console.log( transaction )
+	// 			setTransaction(transaction)
+			}, [index]);
+	// }, 
 
-	const handleDelete = () => {
-		const httpOptions = { "method": "DELETE" };
+	// const handleDelete = () => {
+	// 	const httpOptions = { "method": "DELETE" }
 
-		fetch(`${API}/transaction/${index}`, httpOptions)
-			.then((res) => {
-				alert("Your transaction has been deleted!");
-				navigate(`/transactions`);
-			})
-			.catch((error) => console.error(error));
-	};
+	// 	fetch(`${API}/transaction/${index}`, httpOptions)
+	// 		.then((res) => {
+	// 			console.log(res);
+	// 			alert("Your transaction has been deleted!")
+	// 			navigate("/transactions")
+	// 		})
+	// 		.catch((error) => console.error(error))
+	// };
 
 	return (
 		<article>
@@ -58,7 +52,7 @@ function TransactionDetails() {
 				</div>
 				<div>
 					{" "}
-					<button onClick={handleDelete}>Delete</button>
+					{/* <button onClick={handleDelete}>Delete</button> */}
 				</div>
 			</div>
 		</article>
