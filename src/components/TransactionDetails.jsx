@@ -5,30 +5,31 @@ const API = import.meta.env.VITE_API_URL;
 
 function TransactionDetails() {
 	const [transaction, setTransaction] = useState([]);
-	let { index } = useParams();
+	let { id } = useParams()
 	let navigate = useNavigate();
 
 	useEffect(() => {
-		fetch(`${API}/transactions/${index}`)
-	// 		.then((response) => response.json())
-	// 		.then( transaction =>
-	// 		{
-	// 			console.log( transaction )
-	// 			setTransaction(transaction)
-			}, [index]);
-	// }, 
+		fetch(`${API}/transactions/${id}`)
+			.then((response) => response.json())
+			.then( transaction =>
+			{
+				console.log( transaction )
+				setTransaction(transaction)
+			}, [id, navigate])
+	} 
 
-	// const handleDelete = () => {
-	// 	const httpOptions = { "method": "DELETE" }
+	const httpOptions = { "method": "DELETE" }
+	
+	const handleDelete = () => {
 
-	// 	fetch(`${API}/transaction/${index}`, httpOptions)
-	// 		.then((res) => {
-	// 			console.log(res);
-	// 			alert("Your transaction has been deleted!")
-	// 			navigate("/transactions")
-	// 		})
-	// 		.catch((error) => console.error(error))
-	// };
+		fetch(`${API}/transaction/${id}`, httpOptions)
+			.then((res) => {
+				console.log(res);
+				alert("Your transaction has been deleted!")
+				navigate("/transactions")
+			})
+			.catch((error) => console.error(error))
+	};
 
 	return (
 		<article>
@@ -46,13 +47,13 @@ function TransactionDetails() {
 				</div>
 				<div>
 					{" "}
-					<Link to={`/transactions/${index}/edit`}>
+					<Link to={`/transactions/${id}/edit`}>
 						<button>Edit</button>
 					</Link>
 				</div>
 				<div>
 					{" "}
-					{/* <button onClick={handleDelete}>Delete</button> */}
+					<button onClick={handleDelete}>Delete</button>
 				</div>
 			</div>
 		</article>
