@@ -5,16 +5,12 @@ const API = import.meta.env.VITE_API_URL;
 
 function TransactionsNewForm() {
 	const navigate = useNavigate();
-	const [date, setDate] = useState("");
-	const [name, setName] = useState("");
-	const [business, setBusiness] = useState("");
-	const [amount, setAmount] = useState("");
-	const [category, setCategory] = useState("")
 	const [transaction, setTransaction] = useState({
 		date: "",
 		name: "",
 		amount: "",
 		business: "",
+		category: ""
 	});
 
 	const addTransaction = () => {
@@ -35,24 +31,24 @@ function TransactionsNewForm() {
 	};
 
 	const handleDateChange = (e) => {
-		setDate(e.target.value);
+		setTransaction({...transaction, date: e.target.value});
 	};
 
 	const handleNameChange = (e) => {
-		setName(e.target.value);
+		setTransaction( { ...transaction, name: e.target.value } );
 	};
 
 
 	const handleBusinessChange = (e) => {
-		setBusiness(e.target.value);
+		setTransaction({ ...transaction, business: e.target.value });
 	};
 
 	const handleAmountChange = (e) => {
-		setAmount(e.target.value);
+		setTransaction({ ...transaction, amount: e.target.value });
 	};
 
 	const handleCategoryChange = (e) => {
-		setCategory(e.target.value)
+		setTransaction({ ...transaction, category: e.target.value });
 	}
 
 	const handleSubmit = (e) => {

@@ -4,11 +4,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 const API = import.meta.env.VITE_API_URL;
 
 function TransactionsEditForm() {
-	const [date, setDate] = useState("");
-	const [name, setName] = useState("");
-	const [business, setBusiness] = useState("");
-	const [amount, setAmount] = useState("");
-	const [category, setCategory] = useState("")
+	
 	const [transaction, setTransaction] = useState({
 		date: "",
 		name: "",
@@ -21,29 +17,29 @@ function TransactionsEditForm() {
 	const navigate = useNavigate();
 
 	const handleDateChange = (e) => {
-	setDate({...transaction, [e.target.id]: e.target.value});
+		setTransaction({...transaction, date: e.target.value});
 	};
 
 	const handleNameChange = (e) => {
-		setName({...transaction, [e.target.id]: e.target.value });
+		setTransaction({...transaction, name: e.target.value });
 	};
 
 	const handleBusinessChange = (e) => {
-		setBusiness({ ...transaction, [e.target.id]: e.target.value });
+		setTransaction({ ...transaction, business: e.target.value });
 	};
 
 	const handleAmountChange = (e) => {
-		setAmount({ ...transaction, [e.target.id]: e.target.value });
+		setTransaction({ ...transaction, amount: e.target.value });
 	};
 
 	const handleCategoryChange = (e) => {
-		setCategory({ ...transaction, [e.target.id]: e.target.value });
+		setTransaction({ ...transaction, category: e.target.value });
 	}
 
 	useEffect(() => {
 		fetch(`${API}/transactions/${index}`)
 		.then((response) =>  response.json())
-		.then((transaction) => setTransaction(transaction))
+		.then(transaction => setTransaction(transaction))
 		.catch((error) => console.error(error))
 	}, [index, navigate]);
 	
